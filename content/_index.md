@@ -46,5 +46,5 @@ My name is Christoph Budjan and I'm a developmental and stem cell biologist at
 
 I am interested in how cells make decisions about their fate and how they self-organize to develop into an organism.
 
-Find out what I am [interested in](#interests), what I am [currently working on](/current-research/),
-or have a look at my [past research](/past-research/). Say [hello](/contact/).
+Find out what I am [interested in](#interests), what I am [currently working on]({{< relref "current-research" >}}),
+or have a look at my [past research]({{< relref "past-research" >}}). Say [hello]({{< relref "contact" >}}).
