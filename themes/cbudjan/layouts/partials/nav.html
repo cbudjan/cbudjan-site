@@ -1,6 +1,6 @@
 <nav class="site-nav" role="navigation" aria-label="Main navigation">
-  <a href="{{ "/" | relURL }}" class="nav-logo" aria-label="{{ .Site.Title }} home">
-    <img src="{{ "/img/logo.png" | relURL }}" alt="{{ .Site.Title }}">
+  <a href="{{ site.BaseURL }}" class="nav-logo" aria-label="{{ .Site.Title }} home">
+    <img src="{{ "img/logo.png" | absURL }}" alt="{{ .Site.Title }}">
   </a>
 
   <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation">
@@ -10,7 +10,7 @@
   <ul class="nav-links" id="nav-menu" role="list">
     {{ range .Site.Menus.main }}
     <li>
-      <a href="{{ .URL | relURL }}"
+      <a href="{{ .URL | absURL }}"
          {{ if $.IsMenuCurrent "main" . }}class="active" aria-current="page"{{ end }}>
         {{ .Name }}
       </a>

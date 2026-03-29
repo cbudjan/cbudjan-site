@@ -4,7 +4,7 @@
 <div class="listing-gallery" role="img" aria-label="Research images">
   {{ range . }}
   <figure>
-    <img src="{{ . | relURL }}" alt="" loading="lazy">
+    <img src="{{ . | strings.TrimPrefix "/" | absURL }}" alt="" loading="lazy">
   </figure>
   {{ end }}
 </div>
@@ -21,7 +21,7 @@
     <a href="{{ .Permalink }}" class="project-card-link" aria-label="{{ .Title }}">
       <div class="project-card-img">
         {{ with .Params.image }}
-        <img src="{{ . | relURL }}" alt="" loading="lazy">
+        <img src="{{ . | strings.TrimPrefix "/" | absURL }}" alt="" loading="lazy">
         {{ end }}
       </div>
       <div class="project-card-body">

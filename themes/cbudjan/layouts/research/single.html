@@ -3,7 +3,7 @@
 <!-- Full-width banner image -->
 {{ with .Params.image }}
 <div class="project-hero" role="img" aria-label="{{ $.Title }} header image">
-  <img src="{{ . | relURL }}" alt="">
+  <img src="{{ . | strings.TrimPrefix "/" | absURL }}" alt="">
 </div>
 {{ end }}
 
@@ -23,7 +23,7 @@
   <div class="image-gallery" role="list" aria-label="Project images">
     {{ range . }}
     <figure role="listitem">
-      <img src="{{ . | relURL }}" alt="" loading="lazy">
+      <img src="{{ . | strings.TrimPrefix "/" | absURL }}" alt="" loading="lazy">
     </figure>
     {{ end }}
   </div>

@@ -14,7 +14,7 @@
   <div class="image-strip" role="img" aria-label="Fluorescence microscopy images">
     {{ range . }}
     <figure>
-      <img src="{{ . | relURL }}" alt="" loading="lazy">
+      <img src="{{ . | strings.TrimPrefix "/" | absURL }}" alt="" loading="lazy">
     </figure>
     {{ end }}
   </div>

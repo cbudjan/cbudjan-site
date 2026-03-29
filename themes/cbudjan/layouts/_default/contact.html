@@ -5,7 +5,7 @@
   <div class="contact-body">
     {{ with .Params.profile_image }}
     <img class="contact-profile-img"
-         src="{{ . | relURL }}"
+         src="{{ . | strings.TrimPrefix "/" | absURL }}"
          alt="Profile photo of {{ $.Site.Params.author.name }}">
     {{ end }}
     {{ .Content }}
