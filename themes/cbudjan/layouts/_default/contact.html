@@ -1,0 +1,15 @@
+{{ define "main" }}
+
+<div class="project-content">
+  <h1>{{ .Title }}</h1>
+  <div class="contact-body">
+    {{ with .Params.profile_image }}
+    <img class="contact-profile-img"
+         src="{{ . | relURL }}"
+         alt="Profile photo of {{ $.Site.Params.author.name }}">
+    {{ end }}
+    {{ .Content }}
+  </div>
+</div>
+
+{{ end }}

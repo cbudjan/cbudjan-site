@@ -1,0 +1,38 @@
+{{ define "main" }}
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-intro">
+    <h1>{{ .Params.greeting | default "Hello." }}</h1>
+    <div class="hero-sub">
+      {{ .Content }}
+    </div>
+  </div>
+
+  <!-- Microscopy image strip — set hero_images in front matter as list of paths -->
+  {{ with .Params.hero_images }}
+  <div class="image-strip" role="img" aria-label="Fluorescence microscopy images">
+    {{ range . }}
+    <figure>
+      <img src="{{ . | relURL }}" alt="" loading="lazy">
+    </figure>
+    {{ end }}
+  </div>
+  {{ end }}
+</section>
+
+<hr class="section-rule" aria-hidden="true">
+
+<!-- Research interests (defined as sections in front matter) -->
+<section class="section" id="interests" aria-labelledby="interests-heading">
+  <div class="section-label" id="interests-heading">Research Interests</div>
+
+  {{ range .Params.interests }}
+  <div class="interest-block">
+    <h2 class="interest-title">{{ .title }}</h2>
+    {{ .body | markdownify }}
+  </div>
+  {{ end }}
+</section>
+
+{{ end }}

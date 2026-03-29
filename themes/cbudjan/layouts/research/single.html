@@ -1,0 +1,57 @@
+{{ define "main" }}
+
+<!-- Full-width banner image -->
+{{ with .Params.image }}
+<div class="project-hero" role="img" aria-label="{{ $.Title }} header image">
+  <img src="{{ . | relURL }}" alt="">
+</div>
+{{ end }}
+
+<div class="project-content">
+  <h1>{{ .Title }}</h1>
+
+  {{ with .Params.tag }}
+  <div class="project-content-tag">{{ . }}</div>
+  {{ end }}
+
+  <div class="project-body">
+    {{ .Content }}
+  </div>
+
+  <!-- Optional image gallery: set gallery: [img1.jpg, img2.jpg, ...] in front matter -->
+  {{ with .Params.gallery }}
+  <div class="image-gallery" role="list" aria-label="Project images">
+    {{ range . }}
+    <figure role="listitem">
+      <img src="{{ . | relURL }}" alt="" loading="lazy">
+    </figure>
+    {{ end }}
+  </div>
+  {{ end }}
+
+  <!-- Prev / Next navigation within the section -->
+  {{ $pages := .CurrentSection.Pages }}
+  {{ $current := . }}
+  {{ range $i, $p := $pages }}
+    {{ if eq $p $current }}
+      {{ $prev := index $pages (sub $i 1) }}
+      {{ $next := index $pages (add $i 1) }}
+      <nav class="project-nav" aria-label="Project navigation">
+        <div class="project-nav-item prev">
+          {{ with $prev }}
+          <span>← Previous</span>
+          <a href="{{ .Permalink }}">{{ .Title }}</a>
+          {{ end }}
+        </div>
+        <div class="project-nav-item next">
+          {{ with $next }}
+          <span>Next →</span>
+          <a href="{{ .Permalink }}">{{ .Title }}</a>
+          {{ end }}
+        </div>
+      </nav>
+    {{ end }}
+  {{ end }}
+</div>
+
+{{ end }}

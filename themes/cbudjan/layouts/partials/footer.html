@@ -1,0 +1,34 @@
+<footer class="site-footer">
+  <div class="footer-identity">
+    <span class="footer-name">{{ .Site.Params.author.name }}</span>
+    <span class="footer-affil">{{ .Site.Params.author.affiliation }}</span>
+  </div>
+
+  <nav class="footer-social" aria-label="Social links">
+    {{ with .Site.Params.social.orcid }}
+    <a href="https://orcid.org/{{ . }}" target="_blank" rel="noopener" aria-label="ORCID">
+      <i class="fab fa-orcid" aria-hidden="true"></i>
+    </a>
+    {{ end }}
+    {{ with .Site.Params.social.linkedin }}
+    <a href="https://www.linkedin.com/in/{{ . }}" target="_blank" rel="noopener" aria-label="LinkedIn">
+      <i class="fab fa-linkedin" aria-hidden="true"></i>
+    </a>
+    {{ end }}
+    {{ with .Site.Params.social.bluesky }}
+    <a href="https://bsky.app/profile/{{ . }}" target="_blank" rel="noopener" aria-label="Bluesky">
+      <i class="fab fa-bluesky" aria-hidden="true"></i>
+    </a>
+    {{ end }}
+    {{ with .Site.Params.social.github }}
+    <a href="https://github.com/{{ . }}" target="_blank" rel="noopener" aria-label="GitHub">
+      <i class="fab fa-github" aria-hidden="true"></i>
+    </a>
+    {{ end }}
+    {{ with .Site.Params.social.scholar }}
+    <a href="{{ . }}" target="_blank" rel="noopener" aria-label="Google Scholar">
+      <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+    </a>
+    {{ end }}
+  </nav>
+</footer>

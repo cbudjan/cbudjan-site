@@ -1,0 +1,38 @@
+{{ define "main" }}
+
+{{ with .Params.gallery }}
+<div class="listing-gallery" role="img" aria-label="Research images">
+  {{ range . }}
+  <figure>
+    <img src="{{ . | relURL }}" alt="" loading="lazy">
+  </figure>
+  {{ end }}
+</div>
+{{ end }}
+
+<div class="page-header">
+  <h1>{{ .Title }}</h1>
+  {{ with .Content }}<div class="page-intro">{{ . }}</div>{{ end }}
+</div>
+
+<div class="project-grid" role="list">
+  {{ range .Pages }}
+  <article class="project-card" role="listitem">
+    <a href="{{ .Permalink }}" class="project-card-link" aria-label="{{ .Title }}">
+      <div class="project-card-img">
+        {{ with .Params.image }}
+        <img src="{{ . | relURL }}" alt="" loading="lazy">
+        {{ end }}
+      </div>
+      <div class="project-card-body">
+        {{ with .Params.tag }}
+        <div class="project-card-tag">{{ . }}</div>
+        {{ end }}
+        <h2 class="project-card-title">{{ .Title }}</h2>
+      </div>
+    </a>
+  </article>
+  {{ end }}
+</div>
+
+{{ end }}

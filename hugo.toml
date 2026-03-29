@@ -1,0 +1,52 @@
+baseURL = "https://cbudjan.com/"
+languageCode = "en-us"
+title = "Christoph Budjan"
+theme = "cbudjan"                 # folder name under /themes/
+
+# Disable Jekyll-style dates in URLs
+[permalinks]
+  research = "/research/:slug/"
+
+# Navigation menu
+[[menus.main]]
+  name   = "About"
+  url    = "/"
+  weight = 1
+
+[[menus.main]]
+  name   = "Current Research"
+  url    = "/current-research/"
+  weight = 2
+
+[[menus.main]]
+  name   = "Past Research"
+  url    = "/past-research/"
+  weight = 3
+
+[[menus.main]]
+  name   = "Contact"
+  url    = "/contact/"
+  weight = 4
+
+# Site-wide parameters
+[params]
+  description = "Developmental and stem cell biologist at Harvard Medical School / Dana-Farber Cancer Institute."
+
+  [params.author]
+    name        = "Christoph Budjan, PhD"
+    affiliation = "Harvard Medical School · Dana-Farber Cancer Institute"
+
+  [params.social]
+    orcid     = "0000-0002-1563-9750"
+    github    = "cbudjan"
+    linkedin  = "cbudjan"                 # your LinkedIn handle
+    bluesky   = "cbudjan.com"             # your Bluesky handle
+    scholar   = ""                        # full Google Scholar URL
+
+# Markdown rendering
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true                       # allow raw HTML in Markdown files
+  [markup.highlight]
+    style = "github"
