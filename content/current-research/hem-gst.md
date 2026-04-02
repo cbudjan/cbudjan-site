@@ -18,7 +18,7 @@ In the embryo, HSC specification is not driven by hemogenic endothelium in isola
 
 ### Our approach: self-organized AGM niche reconstitution
 
-Our **hemogenic gastruloid** project takes a fundamentally different strategy: we exploit the intrinsic self-organizing capacity of pluripotent stem cells to generate a multi-tissue environment internally, rather than reconstructing it signal by signal from the outside. By providing a small set of global developmental cues, we direct human embryonic stem cells (hESCs) and induced pluripotent stem cells (hiPSCs) to form **hemogenic gastruloids** — three-dimensional, self-organizing structures that spontaneously produce key components of the AGM niche alongside the hemogenic endothelial lineage itself. Proof of concept that gastruloid systems can capture hematopoietic development with spatiotemporal fidelity has been established in mouse models (Vianello & Lutolf, *Sci. Rep.* 2022; Ragusa et al., *eLife* 2025), but these studies used mouse embryonic stem cells and captured only early hematopoietic waves. We extend this approach to human cells, where HSC specification involves distinct gene regulatory logic and niche dependencies.
+Our **hemogenic gastruloid** project takes a fundamentally different strategy: we exploit the intrinsic self-organizing capacity of pluripotent stem cells to generate a multi-tissue environment internally, rather than reconstructing it signal by signal from the outside. By providing a small set of global developmental cues, we direct human embryonic stem cells (hESCs) and induced pluripotent stem cells (hiPSCs) to form **hemogenic gastruloids** — three-dimensional, self-organizing structures that spontaneously produce key components of the AGM niche alongside the hemogenic endothelial lineage itself. Proof of concept that gastruloid systems can capture hematopoietic development with spatiotemporal fidelity has been established in mouse models (Rossi et al., *Sci. Rep.* 2022; Ragusa et al., *eLife* 2025), but these studies used mouse embryonic stem cells and captured only early hematopoietic waves. We extend this approach to human cells, where HSC specification involves distinct gene regulatory logic and niche dependencies.
 
 ### What we have established
 
@@ -40,6 +40,6 @@ We are currently working to improve and mechanistically understand this system u
 
 Calvanese V, Capellera-Garcia S, Ma F, et al. Mapping human haematopoietic stem cells from haemogenic endothelium to birth. *Nature.* 2022;604:534–540. doi:[10.1038/s41586-022-04571-x](https://doi.org/10.1038/s41586-022-04571-x)
 
-Vianello S, Lutolf MP. Gastruloids as in vitro models of embryonic blood development with spatial and temporal resolution. *Sci. Rep.* 2022;12:13380. doi:[10.1038/s41598-022-17265-1](https://doi.org/10.1038/s41598-022-17265-1)
+Rossi G, Giger S, Hübscher T, Lutolf MP. Gastruloids as in vitro models of embryonic blood development with spatial and temporal resolution. *Sci. Rep.* 2022;12:13380. doi:[10.1038/s41598-022-17265-1](https://doi.org/10.1038/s41598-022-17265-1)
 
 Ragusa D, Suen C-W, Torregrosa-Cortés G, et al. Dissecting infant leukemia developmental origins with a hemogenic gastruloid model. *eLife.* 2025;13:e102324. doi:[10.7554/eLife.102324](https://doi.org/10.7554/eLife.102324)
