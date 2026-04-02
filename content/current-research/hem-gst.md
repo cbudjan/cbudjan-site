@@ -1,6 +1,6 @@
 ---
 title: "Derivation of Human HSPCs from Hemogenic Gastruloids"
-tag: "HemGST project"
+tag: "Hemogenic Gastruloid project"
 image: "/img/projects/hem-gst-banner.jpg"
 gallery:
   - "/img/projects/hem-gst-01.jpg"
@@ -18,7 +18,7 @@ In the embryo, HSC specification is not driven by hemogenic endothelium in isola
 
 ### Our approach: self-organized AGM niche reconstitution
 
-Our **HemGST** project takes a fundamentally different strategy: we exploit the intrinsic self-organizing capacity of pluripotent stem cells to generate a multi-tissue environment internally, rather than reconstructing it signal by signal from the outside. By providing a small set of global developmental cues, we direct human embryonic stem cells (hESCs) and induced pluripotent stem cells (hiPSCs) to form **hemogenic gastruloids** — three-dimensional, self-organizing structures that spontaneously produce key components of the AGM niche alongside the hemogenic endothelial lineage itself. Proof of concept that gastruloid systems can capture hematopoietic development with spatiotemporal fidelity has been established in mouse models (Vianello & Lutolf, *Sci. Rep.* 2022; Ragusa et al., *eLife* 2025), but these studies used mouse embryonic stem cells and captured only early hematopoietic waves. We extend this approach to human cells, where HSC specification involves distinct gene regulatory logic and niche dependencies.
+Our **hemogenic gastruloid** project takes a fundamentally different strategy: we exploit the intrinsic self-organizing capacity of pluripotent stem cells to generate a multi-tissue environment internally, rather than reconstructing it signal by signal from the outside. By providing a small set of global developmental cues, we direct human embryonic stem cells (hESCs) and induced pluripotent stem cells (hiPSCs) to form **hemogenic gastruloids** — three-dimensional, self-organizing structures that spontaneously produce key components of the AGM niche alongside the hemogenic endothelial lineage itself. Proof of concept that gastruloid systems can capture hematopoietic development with spatiotemporal fidelity has been established in mouse models (Vianello & Lutolf, *Sci. Rep.* 2022; Ragusa et al., *eLife* 2025), but these studies used mouse embryonic stem cells and captured only early hematopoietic waves. We extend this approach to human cells, where HSC specification involves distinct gene regulatory logic and niche dependencies.
 
 ### What we have established
 
