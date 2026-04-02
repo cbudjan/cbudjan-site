@@ -2,7 +2,7 @@
 title: "Stem Cell-Based Embryo Models as Pre-Clinical Toxicity Platforms"
 tag: "Translational · Collaboration"
 image: "/img/projects/scbem-tox-banner.jpg"
-weight: 4
+weight: 3
 description: "Using human gastruloids and other stem cell-based embryo models as next-generation pre-clinical tools to assess developmental toxicity and teratogenicity of therapeutic compounds — replacing and complementing animal models with human-relevant biology."
 ---
 

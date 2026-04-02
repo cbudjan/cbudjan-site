@@ -2,7 +2,7 @@
 title: "In Silico Modeling of Gastruloid Morphogenesis"
 tag: "Computational · bioRxiv 2025"
 image: "/img/projects/in-silico-banner.png"
-weight: 3
+weight: 2
 
 # Optional: per-page description for SEO / OG tags
 description: "Using agent-based computational modeling to uncover the physical design principles that make symmetry breaking robust in human gastruloids."

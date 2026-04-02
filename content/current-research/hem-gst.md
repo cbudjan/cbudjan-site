@@ -6,7 +6,7 @@ gallery:
   - "/img/projects/hem-gst-01.jpg"
   - "/img/projects/hem-gst-02.jpg"
   - "/img/projects/hem-gst-03.jpg"
-weight: 2
+weight: 1
 description: "Using human hemogenic gastruloids to recapitulate the AGM niche environment and derive hematopoietic stem and progenitor cells with authentic embryonic identity."
 ---
 
