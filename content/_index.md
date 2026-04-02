@@ -42,7 +42,7 @@ interests:
 ---
 
 My name is Christoph Budjan and I'm a developmental and stem cell biologist at
-[Harvard Medical School](https://hms.harvard.edu) and [Dana-Farber Cancer Institute](https://www.dana-farber.org).
+<a href="https://hms.harvard.edu" target="_blank" rel="noopener noreferrer">Harvard Medical School</a> and <a href="https://www.dana-farber.org" target="_blank" rel="noopener noreferrer">Dana-Farber Cancer Institute</a>.
 
 I am interested in how cells make decisions about their fate and how they self-organize to develop into an organism.
 
