@@ -29,9 +29,7 @@ jobs:
           extended: true          # needed for SCSS/asset pipeline
 
       - name: Build
-        # Using the github.io URL while DNS cutover to cbudjan.com is pending.
-        # Once DNS is live, change this to: hugo --minify --baseURL "https://cbudjan.com/"
-        run: hugo --minify --baseURL "https://cbudjan.github.io/cbudjan-site/"
+        run: hugo --minify --baseURL "https://cbudjan.com/"
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
