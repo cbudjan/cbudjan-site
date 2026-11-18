@@ -6,12 +6,12 @@ profile_image: "/img/profile.webp"
 
 **Christoph Budjan, PhD**
 
-Research Scientist
-Department of Data Science, Dana-Farber Cancer Institute
+Research Scientist\
+Department of Data Science, Dana-Farber Cancer Institute\
 Department of Systems Biology, Harvard Medical School
 
-Center for Life Science
-3 Blackfan Circle
+Center for Life Science\
+3 Blackfan Circle\
 Boston, MA 02215
 
 <div class="contact-gap"></div>

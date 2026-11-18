@@ -10,5 +10,8 @@
   <source src="{{ $url }}" type="video/mp4">
 </video>
 {{- else -}}
-<img src="{{ $url }}" alt="{{ .alt | default "" }}"{{ if .lazy }} loading="lazy"{{ end }}>
+{{- $file := printf "static/%s" (strings.TrimPrefix "/" $src) -}}
+<img src="{{ $url }}" alt="{{ .alt | default "" }}"
+     {{- if fileExists $file }}{{ with imageConfig $file }} width="{{ .Width }}" height="{{ .Height }}"{{ end }}{{ end }}
+     {{- if .lazy }} loading="lazy"{{ end }}>
 {{- end -}}

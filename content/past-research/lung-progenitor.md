@@ -28,3 +28,19 @@ I used a combination of *in vitro* chemical genetics in embryo cultures, *in viv
   src="/img/projects/lung-progenitor-02.webp"
   caption="Half-embryo preparation showing the anterior foregut region used in experimental work."
 >}}
+
+---
+
+### References
+
+Calmont, A., Wandzioch, E., Tremblay, K. D., Minowada, G., Kaestner, K. H., Martin, G. R. and Zaret, K. S. (2006). An FGF response pathway that mediates hepatic gene induction in embryonic endoderm cells. *Dev. Cell* **11**, 339–348. doi: [10.1016/j.devcel.2006.06.015](https://doi.org/10.1016/j.devcel.2006.06.015)
+
+Goss, A. M., Tian, Y., Tsukiyama, T., Cohen, E. D., Zhou, D., Lu, M. M., Yamaguchi, T. P. and Morrisey, E. E. (2009). Wnt2/2b and β-catenin signaling are necessary and sufficient to specify lung progenitors in the foregut. *Dev. Cell* **17**, 290–298. doi: [10.1016/j.devcel.2009.06.005](https://doi.org/10.1016/j.devcel.2009.06.005)
+
+Harris-Johnson, K. S., Domyan, E. T., Vezina, C. M. and Sun, X. (2009). β-Catenin promotes respiratory progenitor identity in mouse foregut. *Proc. Natl. Acad. Sci. USA* **106**, 16287–16292. doi: [10.1073/pnas.0902274106](https://doi.org/10.1073/pnas.0902274106)
+
+Jung, J., Zheng, M., Goldfarb, M. and Zaret, K. S. (1999). Initiation of mammalian liver development from endoderm by fibroblast growth factors. *Science* **284**, 1998–2003. doi: [10.1126/science.284.5422.1998](https://doi.org/10.1126/science.284.5422.1998)
+
+Serls, A. E., Doherty, S., Parvatiyar, P., Wells, J. M. and Deutsch, G. H. (2005). Different thresholds of fibroblast growth factors pattern the ventral foregut into liver and lung. *Development* **132**, 35–47. doi: [10.1242/dev.01570](https://doi.org/10.1242/dev.01570)
+
+Wandzioch, E. and Zaret, K. S. (2009). Dynamic signaling network for the specification of embryonic pancreas and liver progenitors. *Science* **324**, 1707–1710. doi: [10.1126/science.1174497](https://doi.org/10.1126/science.1174497)

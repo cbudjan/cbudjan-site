@@ -11,7 +11,7 @@ To date, we know very little about how the process of segment formation happens 
 
 To recapitulate human segment formation in a dish, we used stem cells, which are capable of making any cell type in the body. To mimic the process that normally occurs in the embryo, we first let a defined number of stem cells form a cluster of cells (aggregate). Then we guided the stem cells to differentiate (change from a less specialized cell type to a more specialized cell type) to cell types that make up somites in the embryo. This differentiation process is highly regulated and typically happens without problems in the embryo. However, the process in a dish is much less well controlled. We systematically tested many conditions to figure out a way to reproducibly make 3D tissue structures (called organoids) that form somites from human stem cells. We also confirmed that the organization and size of somites, as well as the genes they turn on and off are very similar to what we know about vertebrate somites.
 
-This new model of human segment formation is the first model of its kind which now allows us and other researchers to better understand how segments form in humans. It might also allow researchers to investigate what exactly goes wrong when vertebrae fail to form completely or when they fuse together causing a sideway curvature in newborns.
+This new model of human segment formation is the first model of its kind which now allows us and other researchers to better understand how segments form in humans. It might also allow researchers to investigate what exactly goes wrong when vertebrae fail to form completely or when they fuse together causing a sideways curvature in newborns.
 
 {{< figure
   src="/img/projects/somitoids-01.mp4"
@@ -20,7 +20,7 @@ This new model of human segment formation is the first model of its kind which n
 
 {{< figure
   src="/img/projects/somitoids-02.webp"
-  caption="Somite-stage organoid (Somitoid) from human iPS cells make somites in vitro."
+  caption="A somite-stage organoid (Somitoid) derived from human iPS cells forms somites in vitro."
 >}}
 
 ---

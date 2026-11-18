@@ -672,3 +672,39 @@ blockquote {
 @media (max-width: 540px) {
   .project-grid { grid-template-columns: 1fr; }
 }
+
+/* ── Accessibility ──────────────────────────────────────────
+   None of this is visible when using a mouse or touch screen. */
+
+/* Skip link: off-screen until reached with the Tab key */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 1000;
+  padding: 0.6rem 1rem;
+  background: #1c1c1c;
+  color: #fff;
+  font-size: 0.85rem;
+}
+.skip-link:focus { left: 0; }
+main:focus { outline: none; }
+
+/* Focus ring for keyboard navigation only (:focus-visible does not fire on mouse clicks) */
+a:focus-visible,
+button:focus-visible,
+video:focus-visible {
+  outline: 2px solid #1c1c1c;
+  outline-offset: 3px;
+}
+
+/* Visitors who set their device to "reduce motion" */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+  .image-strip figure:hover img,
+  .project-card:hover .project-card-img img { transform: none; }
+}
