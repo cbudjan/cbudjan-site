@@ -47,12 +47,6 @@ Thesis supervisor: Prof. Michael Boutros (DKFZ)
 
 **2014** "Temporal Integration of Signals Confers Endodermal Progenitor Competence and Specifies the Respiratory Lineage". Selected talk, Cambridge Centre for Stem Cell Research annual meeting, Cambridge, UK
 
-## Teaching
-
-**2018–2020** Lecturer, "Advances in Stem Cell Research", Summer Research Enhancement Course, MGH Martinos Center, Boston, USA
-
-**2012–2015** Supervisor, small-group teaching for the Natural Sciences Tripos, Gonville & Caius College, University of Cambridge, UK
-
 ## Service
 
 **Since 2026** Co-organizer, [International Tea Room](https://tearoomseminars.github.io/), a monthly virtual seminar series on embryos and stem cell-based embryo models, particularly gastruloids. Labs present ongoing and unpublished work to a community of about 150 members from more than 60 labs; sessions run on the second Monday of each month, and early-career researchers are encouraged to nominate themselves to speak.
