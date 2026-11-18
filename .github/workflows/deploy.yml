@@ -2,41 +2,47 @@ name: Deploy Hugo site to GitHub Pages
 
 on:
   push:
-    branches: [main]        # runs on every push to main
-  workflow_dispatch:         # also allows manual trigger from GitHub UI
+    branches: [main]        # build and deploy on every push to main
+  pull_request:             # build only (no deploy) so pull requests get a check
+  workflow_dispatch:        # also allows manual trigger from GitHub UI
 
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Only one deployment at a time; cancel any in-progress run if a new push arrives
+# Only one deployment at a time; let an in-progress deployment finish
 concurrency:
-  group: "pages"
+  group: "pages-${{ github.ref }}"
   cancel-in-progress: false
+
+env:
+  HUGO_VERSION: "0.169.0"   # pinned; bump deliberately after testing locally
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: "latest"
+          hugo-version: ${{ env.HUGO_VERSION }}
           extended: true          # needed for SCSS/asset pipeline
 
       - name: Build
         run: hugo --minify --baseURL "https://cbudjan.com/"
 
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v5
         with:
           path: ./public
 
   deploy:
+    if: github.event_name != 'pull_request'
     needs: build
     runs-on: ubuntu-latest
     environment:
@@ -45,4 +51,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5

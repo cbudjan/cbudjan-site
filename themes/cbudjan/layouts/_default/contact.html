@@ -4,8 +4,10 @@
   <h1>{{ .Title }}</h1>
   <div class="contact-body">
     {{ with .Params.profile_image }}
+    {{ $file := printf "static/%s" (strings.TrimPrefix "/" .) }}
     <img class="contact-profile-img"
          src="{{ . | strings.TrimPrefix "/" | absURL }}"
+         {{- if fileExists $file }}{{ with imageConfig $file }} width="{{ .Width }}" height="{{ .Height }}"{{ end }}{{ end }}
          alt="Profile photo of {{ $.Site.Params.author.name }}">
     {{ end }}
     {{ .Content }}
