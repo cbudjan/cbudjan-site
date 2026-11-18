@@ -29,13 +29,20 @@
   </div>
   {{ end }}
 
-  <!-- Prev / Next navigation within the section -->
-  {{ $pages := .CurrentSection.Pages }}
+  <!-- Prev / Next navigation within the section.
+       Only projects that have a page of their own take part: one listed
+       without a page (build.render = false) has an empty Permalink, which
+       would otherwise render a link back to the current page. -->
+  {{ $pages := slice }}
+  {{ range .CurrentSection.Pages }}
+    {{ if .Permalink }}{{ $pages = $pages | append . }}{{ end }}
+  {{ end }}
   {{ $current := . }}
   {{ range $i, $p := $pages }}
     {{ if eq $p $current }}
-      {{ $prev := index $pages (sub $i 1) }}
-      {{ $next := index $pages (add $i 1) }}
+      {{ $prev := false }}{{ $next := false }}
+      {{ if gt $i 0 }}{{ $prev = index $pages (sub $i 1) }}{{ end }}
+      {{ if lt (add $i 1) (len $pages) }}{{ $next = index $pages (add $i 1) }}{{ end }}
       <nav class="project-nav" aria-label="Project navigation">
         <div class="project-nav-item prev">
           {{ with $prev }}
