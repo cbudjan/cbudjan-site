@@ -18,8 +18,11 @@
 <div class="project-grid" role="list">
   {{ range .Pages }}
   {{ $card := . }}
-  <article class="project-card" role="listitem">
-    <a href="{{ .Permalink }}" class="project-card-link" aria-label="{{ .Title }}">
+  {{/* A project with no page of its own (_build.render = false) is listed but not clickable. */}}
+  {{ $url := .Permalink }}
+  <article class="project-card{{ if not $url }} is-unlinked{{ end }}" role="listitem">
+    {{ if $url }}<a href="{{ $url }}" class="project-card-link" aria-label="{{ .Title }}">
+    {{ else }}<div class="project-card-link">{{ end }}
       <div class="project-card-img">
         {{ with .Params.image }}
         {{ partial "media.html" (dict "src" . "alt" ($card.Params.image_alt | default "") "lazy" true) }}
@@ -31,7 +34,7 @@
         {{ end }}
         <h2 class="project-card-title">{{ .Title }}</h2>
       </div>
-    </a>
+    {{ if $url }}</a>{{ else }}</div>{{ end }}
   </article>
   {{ end }}
 </div>
