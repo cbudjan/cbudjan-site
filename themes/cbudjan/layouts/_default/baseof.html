@@ -24,13 +24,23 @@
 </head>
 <body>
 
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
   {{- partial "nav.html" . -}}
 
-  <main id="main-content">
+  <main id="main-content" tabindex="-1">
     {{- block "main" . }}{{- end }}
   </main>
 
   {{- partial "footer.html" . -}}
 
+  <script>
+    // Respect the "reduce motion" system setting: don't auto-play videos, show controls instead
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.querySelectorAll('video[autoplay]').forEach(function (v) {
+        v.removeAttribute('autoplay'); v.pause(); v.controls = true;
+      });
+    }
+  </script>
 </body>
 </html>
