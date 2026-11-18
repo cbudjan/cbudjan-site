@@ -83,6 +83,12 @@ a { color: inherit; text-decoration: none; }
   border-bottom: 1px solid transparent;
   transition: color 0.2s, border-color 0.2s;
 }
+.nav-links a { white-space: nowrap; }
+/* Five menu items: tighten spacing between the mobile breakpoint and full desktop width */
+@media (min-width: 769px) and (max-width: 1000px) {
+  .nav-links { gap: 1.1rem; }
+  .nav-links a { font-size: 0.72rem; letter-spacing: 0.08em; }
+}
 .nav-links a:hover,
 .nav-links a.active {
   color: var(--nav-text);
@@ -169,7 +175,8 @@ main { padding-top: var(--nav-h); }
   background: var(--bg); /* matches page colour, hides any letterboxing */
   margin: 0;
 }
-.listing-gallery figure img {
+.listing-gallery figure img,
+.listing-gallery figure video {
   width: 100%;
   height: 100%;
   object-fit: contain;  /* scale to fit — no cropping */
@@ -468,7 +475,8 @@ blockquote {
   margin: 2.5rem 0;
   max-width: 720px;
 }
-.project-figure img {
+.project-figure img,
+.project-figure video {
   width: 100%;
   border: 1px solid var(--rule);
   display: block;
@@ -615,6 +623,8 @@ blockquote {
   transition: color 0.2s;
 }
 .footer-social a:hover { color: rgba(28,28,28,0.85); }
+.icon { display: inline-flex; }
+.icon svg { width: 1em; height: 1em; fill: currentColor; display: block; }
 
 /* ── Responsive ─────────────────────────────────────────── */
 @media (max-width: 768px) {

@@ -14,7 +14,7 @@ To recapitulate human segment formation in a dish, we used stem cells, which are
 This new model of human segment formation is the first model of its kind which now allows us and other researchers to better understand how segments form in humans. It might also allow researchers to investigate what exactly goes wrong when vertebrae fail to form completely or when they fuse together causing a sideway curvature in newborns.
 
 {{< figure
-  src="/img/projects/somitoids-01.gif"
+  src="/img/projects/somitoids-01.mp4"
   caption="Visualizing the human segmentation clock using human paraxial mesoderm organoids (Somitoids)."
 >}}
 

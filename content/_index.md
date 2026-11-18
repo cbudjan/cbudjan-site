@@ -48,3 +48,5 @@ I am interested in how cells make decisions about their fate and how they self-o
 
 Find out what I am [interested in](#interests), what I am [currently working on]({{< relref "current-research" >}}),
 or have a look at my [past research]({{< relref "past-research" >}}). Say [hello]({{< relref "contact" >}}).
+
+I also co-organize the [International Tea Room](https://tearoomseminars.github.io/), a monthly virtual seminar series on embryos and stem cell-based embryo models.

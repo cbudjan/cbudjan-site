@@ -54,7 +54,7 @@ We are actively seeking collaborations with academic laboratories and industry p
 
 [1] Loberg LI, Proctor WR, Burdick AD, et al. Nonclinical teratogenicity safety assessment of CRBN-engaging targeted protein degraders: IQ Consortium points to consider. *Regul Toxicol Pharmacol.* 2025;158:105793.
 
-[5] Liu J, Shen Z, Park SY, et al. Discovery of a small-molecule non-IMiD degrader of ZBTB7A for the treatment of β-hemoglobinopathies. *bioRxiv.* 2025. doi:[10.1101/2025.09.17.676148](https://doi.org/10.1101/2025.09.17.676148)
+[5] Liu J, Shen Z, Park SY, et al. A non-IMiD multi-target degrader reactivates fetal hemoglobin. *Exp Hematol Oncol.* 2026;15. doi:[10.1186/s40164-026-00846-5](https://doi.org/10.1186/s40164-026-00846-5)
 
 [6] Moris N, Anlas K, van den Brink SC, et al. An in vitro model of early anteroposterior organization during human development. *Nature.* 2020;582:410–415.
 

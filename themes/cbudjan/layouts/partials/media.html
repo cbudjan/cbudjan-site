@@ -1,0 +1,14 @@
+{{- /* Renders an image, or a looping muted video when src ends in .mp4.
+       Params: src (required), alt, lazy (bool). A sibling "<name>-poster.jpg" is used as the video poster if present. */ -}}
+{{- $src := .src -}}
+{{- $url := $src | strings.TrimPrefix "/" | absURL -}}
+{{- if strings.HasSuffix (lower $src) ".mp4" -}}
+{{- $poster := replaceRE `\.mp4$` "-poster.jpg" $src -}}
+<video autoplay loop muted playsinline preload="metadata"
+       {{- if fileExists (printf "static/%s" (strings.TrimPrefix "/" $poster)) }} poster="{{ $poster | strings.TrimPrefix "/" | absURL }}"{{ end }}
+       {{- with .alt }} aria-label="{{ . }}"{{ end }}>
+  <source src="{{ $url }}" type="video/mp4">
+</video>
+{{- else -}}
+<img src="{{ $url }}" alt="{{ .alt | default "" }}"{{ if .lazy }} loading="lazy"{{ end }}>
+{{- end -}}

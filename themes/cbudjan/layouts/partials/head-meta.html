@@ -1,0 +1,34 @@
+{{- $desc := .Description | default .Site.Params.description -}}
+{{- $title := cond .IsHome .Site.Title (printf "%s — %s" .Title .Site.Title) -}}
+{{- /* Preview image: the page's banner if it exists on disk, otherwise the site default. */ -}}
+{{- $img := .Site.Params.defaultImage -}}
+{{- with .Params.image -}}
+  {{- if fileExists (printf "static/%s" (strings.TrimPrefix "/" .)) -}}{{- $img = . -}}{{- end -}}
+{{- end -}}
+<meta name="description" content="{{ $desc }}">
+<link rel="canonical" href="{{ .Permalink }}">
+
+<!-- Open Graph / social previews -->
+<meta property="og:site_name" content="{{ .Site.Title }}">
+<meta property="og:title" content="{{ $title }}">
+<meta property="og:description" content="{{ $desc }}">
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+<meta property="og:url" content="{{ .Permalink }}">
+{{ with $img }}<meta property="og:image" content="{{ . | strings.TrimPrefix "/" | absURL }}">{{ end }}
+<meta name="twitter:card" content="{{ if $img }}summary_large_image{{ else }}summary{{ end }}">
+<meta name="twitter:title" content="{{ $title }}">
+<meta name="twitter:description" content="{{ $desc }}">
+{{ with $img }}<meta name="twitter:image" content="{{ . | strings.TrimPrefix "/" | absURL }}">{{ end }}
+
+{{- if .IsHome }}
+{{- $same := slice -}}
+{{- with .Site.Params.social.orcid }}{{ $same = $same | append (printf "https://orcid.org/%s" .) }}{{ end -}}
+{{- with .Site.Params.social.linkedin }}{{ $same = $same | append (printf "https://www.linkedin.com/in/%s" .) }}{{ end -}}
+{{- with .Site.Params.social.bluesky }}{{ $same = $same | append (printf "https://bsky.app/profile/%s" .) }}{{ end -}}
+{{- with .Site.Params.social.github }}{{ $same = $same | append (printf "https://github.com/%s" .) }}{{ end -}}
+{{- with .Site.Params.social.scholar }}{{ $same = $same | append . }}{{ end -}}
+{{- $orgs := slice -}}
+{{- range .Site.Params.author.organizations }}{{ $orgs = $orgs | append (dict "@type" "Organization" "name" .name "url" .url) }}{{ end -}}
+{{- $ld := dict "@context" "https://schema.org" "@type" "Person" "name" .Site.Title "url" .Site.BaseURL "description" .Site.Params.description "jobTitle" .Site.Params.author.jobTitle "affiliation" $orgs "sameAs" $same }}
+<script type="application/ld+json">{{ $ld | jsonify | safeJS }}</script>
+{{- end }}

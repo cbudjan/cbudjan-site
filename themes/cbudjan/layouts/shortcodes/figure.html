@@ -1,5 +1,5 @@
 <figure class="project-figure">
-  <img src="{{ .Get "src" | strings.TrimPrefix "/" | absURL }}" alt="{{ .Get "alt" | default "" }}" loading="lazy">
+  {{ partial "media.html" (dict "src" (.Get "src") "alt" (.Get "alt" | default "") "lazy" true) }}
   {{ with .Get "caption" }}
   <figcaption>{{ . | markdownify }}</figcaption>
   {{ end }}
