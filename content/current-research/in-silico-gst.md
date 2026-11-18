@@ -1,43 +1,59 @@
 ---
 title: "In Silico Modeling of Gastruloid Morphogenesis"
-tag: "Computational · bioRxiv 2025"
+tag: "Modeling + experiment · bioRxiv 2026"
 image: "/img/projects/in-silico-banner.png"
 weight: 2
 
 # Optional: per-page description for SEO / OG tags
-description: "Using agent-based computational modeling to uncover the physical design principles that make symmetry breaking robust in human gastruloids."
+description: "Agent-based modeling and human gastruloid merging experiments show that forming a single body axis requires both short-range adhesion and long-range attraction between cells."
 ---
 
 ## Summary
 
-One of the most fundamental events in animal development is symmetry breaking — the moment when an initially spherical ball of identical-looking cells first establishes a distinct head-to-tail axis. In gastruloids, our 3D stem cell-based embryo models, this transition is remarkably reproducible: aggregates of human embryonic stem cells reliably elongate and polarize within 48–72 hours of Wnt pathway stimulation. Yet the physical and molecular rules that make this process so consistent have remained unclear.
+Establishing the anterior–posterior (head-to-tail) axis is a key symmetry-breaking event in mammalian development. Gastruloids, our 3D stem cell-based embryo models, undergo a similar process: aggregates of human embryonic stem cells start out roughly spherical and, after Wnt pathway stimulation, reliably elongate and form a single posterior pole within 72 hours. Recent work shows that gastruloids do not get there from a uniform state. They first establish an *inside–outside* difference: outer cells have higher Wnt activity and tend toward primitive streak-like fates, while inner cells have higher Nodal activity and remain more pluripotent. A radial pattern like this has no preferred direction on the surface of the aggregate. The question we asked is what cell–cell interactions convert it into **one** stable axis.
 
-To investigate this, we constructed a coarse-grained **agent-based computational model** representing the two main cell populations found in gastruloids: *peripheral* (outer) cells that preferentially acquire primitive streak-like identities and high Wnt activity, and *core* (inner) cells that remain more pluripotent with elevated Nodal signaling. Each simulated cell is treated as a point agent interacting with its neighbors through two classes of forces: short-range contact forces governed by differential adhesion, and optional long-range chemotaxis-like forces. We then systematically swept through nearly 180,000 combinations of interaction parameters — mapping the full "morphogenetic landscape" of possible outcomes.
+### Human gastruloids reproducibly form a single axis
+
+We first quantified how reproducible this process is. Using a germ-layer reporter line (RUES2-GLR), we segmented the anterior and posterior domains of each gastruloid and computed a separation score: the distance between the two domain centers, normalized by aggregate size. Across 10 gastruloids the score was 1.38 ± 0.10, corresponding to a clearly polarized geometry. This gave us an experimental reference against which to compare simulations.
+
+### A two-population model
+
+We built a coarse-grained **agent-based computational model** in which each cell is a point agent. Simulations start from a compact sphere of 1,500 cells with a radial prepattern: 25% *outer* cells forming a peripheral shell and 75% *inner* cells forming the core. Cells interact through two classes of forces: short-range contact forces that capture adhesion between neighbors, and an optional long-range attraction or repulsion. The long-range term is phenomenological. It stands for any process that biases cells toward or away from other cells over distances longer than direct contact, without committing to a molecular mechanism. We scanned 177,957 combinations of interaction parameters and asked which ones produce one stable axis while keeping the cells in a single aggregate.
 
 ### Differential adhesion alone is not enough
 
-The classical explanation for cell sorting and axis formation invokes **differential adhesion**: cells of the same type stick more strongly to each other than to cells of a different type, causing them to segregate. Our simulations show that while differential adhesion can initiate weak asymmetries, it reliably fails to produce a single, robust axis. Even when inner and outer cells preferentially adhered to their own type, the resulting morphological asymmetry was consistently low and variable across replicate simulations. This mirrors recent experimental findings from synthetic organoid systems built purely from engineered adhesion molecules, which similarly failed to produce single, reproducible axes.
+The classical explanation for cell sorting invokes **differential adhesion**: cells of the same type stick to each other more strongly than to cells of a different type. In our simulations, the best adhesion-only settings followed exactly this logic, but they did not reliably produce a single axis. Runs ended in weak separation, small displaced clusters, or fragmentation, and this held across noise levels. With adhesion alone, no parameter setting met our criterion for axis formation. This is consistent with synthetic multicellular systems built from engineered adhesion molecules, which sort cells but tend to produce variable numbers of clusters rather than one axis.
 
-### Long-range peripheral attraction is the key additional design principle
+### Long-range attraction between outer cells produces one axis
 
-The situation changed fundamentally when we introduced a **long-range attraction specifically among outer/peripheral cells** — a parameter representing chemotaxis-like interactions, such as cells responding directionally to a diffusible morphogen gradient. This single additional term dramatically expanded the parameter space compatible with robust symmetry breaking: the fraction of adhesion parameter combinations yielding a well-separated, single axis grew from essentially zero to nearly 18%. The outer cells coherently converge toward one pole of the aggregate while the inner cells are displaced to the opposite pole — producing high morphological asymmetry with minimal cell loss, and doing so reliably across independent simulation replicates.
+We then added one long-range interaction at a time. One stood out: **attraction among outer cells**. With it, the outer cells collect into one pole, the inner cells form the opposite domain, and most cells stay in one aggregate. Outer-to-outer attraction was present in 99.94% of the top 1% of parameter sets, and as its strength increased, the fraction of adhesion settings that formed an axis rose from 0% to 18%. Rescored the same way as the experimental images, successful simulations gave a separation score of about 1.46, close to the measured 1.38.
 
-Importantly, long-range peripheral attraction does not require precise fine-tuning of adhesion: it converts a narrow, adhesion-sensitive window into a broad basin of attraction for symmetry breaking, making the outcome robust to perturbation. The optimal configurations share a consistent logic: strong inner–inner cohesion (preventing core fragmentation), weak inner–outer adhesion (allowing the two populations to separate), moderate outer–outer adhesion (permitting peripheral reorganization), and long-range outer–outer attraction that coherently pulls the periphery into a polarized architecture.
+The two kinds of interaction play different roles. Adhesion provides local cohesion and sorting: strong inner–inner adhesion keeps the core together, weak inner–outer adhesion lets the populations separate, and moderate outer–outer adhesion keeps outer cells associated while still letting them rearrange. Long-range attraction provides the global coordination that selects a single direction, and it makes the outcome far less dependent on fine-tuned adhesion. The result also does not depend on a perfect initial shell: what matters is that cells at the periphery can coordinate over distances longer than direct contact.
 
-### From mechanics to genetics: a minimal regulatory network
+### Testing the prediction: merging gastruloids
 
-Having identified the mechanical design principles, we asked whether this behavior could arise **autonomously from gene regulation** — starting from a homogeneous cell population with no pre-assigned types. We designed a minimal three-gene regulatory network implementing five modular functions: (1) a *timer* gene with self-activation and strong degradation, creating two distinct temporal stages; (2) a *diffusion-driven* circuit translating the aggregate's radial geometry into differential gene expression between inner and outer cells; (3) a *bistability* circuit that bifurcates two genes into distinct high/low states; (4) a *lock-in* circuit preserving these states after the bifurcation; and (5) a readout layer that maps gene states directly to the short- and long-range mechanical parameters.
+The model makes a prediction that can be tested directly. If two polarized gastruloids are brought together in *opposite* orientations, adhesion alone should leave their two posterior poles at opposite ends of the fused aggregate. Long-range attraction should instead make the poles travel around the surface and join. In simulations, the fraction of pairs ending with one continuous posterior domain went from 0% without long-range attraction to 97% with it.
 
-This three-gene network successfully recapitulates the full morphogenetic sequence from scratch — a homogeneous spherical aggregate spontaneously transitions to a heterogeneous, elongated structure with a single stable axis — without any pre-specified cell types or externally imposed gradients.
+Human gastruloid merging experiments showed the predicted behavior. Pairs that met in the same orientation fused quickly, usually within 6 hours. Pairs that met in opposite orientations fused over about 30 hours, as their posterior regions moved around the periphery of the fused aggregate and converged. In all 12 pairs examined (6 of 6 at each of two CHIR doses), the merged aggregate ended with a single posterior domain. This does not identify the molecular basis of the interaction, but it supports the idea that an attraction-like interaction coordinates posterior cells over distances longer than cell–cell contact.
+
+### From mechanics to genetics: a minimal regulatory circuit
+
+Finally, we asked whether gene regulation could generate both the cell states and the mechanical interactions, starting from a uniform population with no pre-assigned cell types. We designed a minimal three-gene circuit. A *timer* gene starts high and decays, separating an early pattern-establishment stage from a later mechanical stage. Spatial information comes from the geometry of the aggregate: cells at the center receive more distance-dependent signal than cells at the surface. A *mutually inhibitory switch* between the other two genes, an abstract counterpart of the opposing Wnt and Nodal activities seen in gastruloids, converts this radial difference into two stable cell states, and a *lock-in* module preserves them. The gene state then sets each cell's adhesion and long-range attraction.
+
+In this model, an initially uniform spherical aggregate forms radial gene-expression differences and then a single polarized axis, without pre-specified cell types or an externally imposed direction.
 
 ### DevSim: an open simulation platform
 
-To make these modeling frameworks broadly accessible, we developed **DevSim**, a user-friendly MATLAB-based simulation platform for exploring arbitrary genetic-mechanical regulatory networks. DevSim allows flexible specification of population size, gene number, regulatory topology, force parameters, and noise levels, and runs on personal computers (Windows/macOS), high-performance computing clusters, and as a web browser application. A full symmetry-breaking simulation — from a homogeneous spherical aggregate to a heterogeneous elongated structure — completes in under two minutes on a standard laptop.
+The three-gene circuit is one point in a much larger design space. To make that space easier to explore, we built **DevSim**, a MATLAB-based platform for simulating coupled gene-regulatory and mechanical models of multicellular patterning. Users can change the cell population, gene network, signaling and mechanical parameters, and noise levels, and DevSim visualizes gene expression, cell positions and aggregate shape over time. It runs on a personal computer, on a computing cluster, or through MATLAB Online. By changing the network topology and parameters, the same framework also produces layered, bilobed, multilobed and striped patterns. Code and data are available at [github.com/hormoz-lab/Symmetry-Breaking](https://github.com/hormoz-lab/Symmetry-Breaking).
+
+### Why it matters
+
+Adhesion can sort cells locally, but our results suggest that building one reproducible axis also requires a way for cells to coordinate across the whole aggregate. For synthetic developmental biology, this points to a design rule: programmable adhesion may need to be combined with engineered signaling, motility or attraction-like interactions that act over longer distances.
 
 ---
 
 {{< callout >}}
-**In plain terms:** When stem cells form a tiny ball in a dish, they somehow reliably figure out which end will become the "head" end and which the "tail" end — even though they all start out looking the same. We ran computer simulations testing thousands of different rules for how the cells might push and pull on each other. We found a surprising result: the usual explanation — that cells simply stick preferentially to their own kind — is not enough to make this work reliably. The key missing ingredient is that cells on the *outside* of the ball also need to attract each other over longer distances, like a weak magnet. When this long-range pull is added, the outer cells reliably converge to one pole every time, setting up the body axis. We then showed that a simple three-gene genetic program can spontaneously generate this entire sequence from scratch, and built a free simulation tool so anyone can explore these principles.
+**In plain terms:** When stem cells form a tiny ball in a dish, they reliably work out which end will become the "tail" end, even though the ball starts out round. We ran nearly 180,000 computer simulations testing different rules for how the cells might push and pull on each other. The usual explanation, that cells simply stick preferentially to their own kind, turned out not to be enough. The missing ingredient is that cells on the *outside* of the ball also need to attract each other over longer distances. With this long-range pull, the outer cells gather at one pole every time, setting up the body axis. The model then made a prediction we could test in the lab: if two of these structures are pushed together facing opposite ways, their two "tail" ends should travel around the surface and merge into one. That is what we saw. We also showed that a simple three-gene program can generate the whole sequence from scratch, and built a free simulation tool so others can explore these principles.
 {{< /callout >}}
 
 ---
@@ -45,24 +61,33 @@ To make these modeling frameworks broadly accessible, we developed **DevSim**, a
 ## Representative figures
 
 {{< figure
-  src="/img/projects/in-silico-fig1c.png"
-  caption="**Fig. 1C.** Fluorescence imaging of RUES2-GLR reporter gastruloids at 48h and 72h. Germ-layer markers localize to distinct, adjacent domains at the distal (posterior) pole: TBXT/BRA (mesoderm, cyan), SOX2 (neuroectoderm, yellow), SOX17 (endoderm, magenta). Scale bar: 100 µm."
+  src="/img/projects/in-silico-fig1c.jpg"
+  alt="Two human gastruloids at 48 and 72 hours with SOX2, TBXT and SOX17 reporter cells clustered in adjacent domains at one end"
+  caption="**Fig. 1C.** Fluorescence images of two gastruloids at 48 h and 72 h made from RUES2-GLR germ-layer reporter cells. SOX2 (yellow) labels neuroectoderm-like cells, TBXT/BRA (cyan) primitive streak/mesoderm-like cells, and SOX17 (magenta) endoderm-like cells. The three germ layers form spatially organized domains. Scale bar: 100 µm."
 >}}
 
 {{< figure
-  src="/img/projects/in-silico-fig4d.png"
-  caption="**Fig. 4D.** Final morphologies from five independent simulation replicates, without (top) and with (bottom) long-range outer–outer attraction (β<sub>o→o</sub> = 0.135). Outer cells: red; inner cells: blue. Adding long-range attraction converts variable, weak sorting into a single, robust bipolar axis across all replicates."
+  src="/img/projects/in-silico-fig4d.jpg"
+  alt="Simulated cell aggregates in five replicates: without long-range attraction red outer cells stay scattered around a blue core; with it, red and blue cells separate into two poles"
+  caption="**Fig. 4D.** Final states from five simulation replicates with the same adhesion parameters, without (top) and with (bottom) long-range outer-to-outer attraction (β<sub>o→o</sub> = 0.135). Outer cells: red; inner cells: blue. Adding long-range attraction converts weak or local separation into one stable axis."
 >}}
 
 {{< figure
-  src="/img/projects/in-silico-fig5e.png"
-  caption="**Fig. 5E.** Morphological evolution driven by the three-gene genetic-mechanical regulatory network. Each row shows a different gene's expression level (gray = low, red = high) over simulated time. Outer cells progressively converge to one pole, establishing a stable anterior–posterior axis from an initially homogeneous aggregate."
+  src="/img/projects/in-silico-fig5b.jpg"
+  alt="Brightfield time course of two pairs of merging human gastruloids from 48 to 78 hours, with arrowheads marking the posterior poles; the same-orientation pair fuses quickly, while in the opposite-orientation pair the poles move around the aggregate"
+  caption="**Fig. 5B.** Two merging human gastruloids imaged every 6 h. The first column shows TBXT/BRA fluorescence at 48 h, before merging, marking the initial posterior poles (orange and red arrowheads). Same-orientation pairs merge rapidly; opposite-orientation pairs merge more slowly as the posterior poles move around the periphery of the fused aggregate. Scale bars: 100 µm."
+>}}
+
+{{< figure
+  src="/img/projects/in-silico-fig6e.jpg"
+  alt="Simulation snapshots over time of a cell aggregate colored by expression of three genes; an initially uniform sphere develops an inside–outside pattern and then a single red pole"
+  caption="**Fig. 6E.** Pattern formation driven by the three-gene circuit, starting from a uniform spherical aggregate (gray = low expression, red = high). Row 1 shows the whole aggregate colored by G2; rows 2–4 show cross-sections colored by G1, G2 and G3. The circuit first generates radial differences in gene expression, then activates the mechanical interactions that move the outer population into one pole."
 >}}
 
 ---
 
 ## Citation
 
-Guan G.<sup>†</sup>, Wang S.<sup>†</sup>, Shields T.G.<sup>†</sup>, Pahng S.H., Shao C.X., Ye J., **Budjan C.**<sup>‡</sup>, Hormoz S.<sup>‡</sup> (2025). Cooperative short- and long-range interactions enable robust symmetry breaking and axis formation. *bioRxiv*. doi: [10.1101/2025.09.27.678924](https://www.biorxiv.org/content/10.1101/2025.09.27.678924v1)
+Guan G.<sup>†</sup>, Wang S.<sup>†</sup>, Shields T.G.<sup>†</sup>, Pahng S.H., Shao C.X., Ye J., **Budjan C.**<sup>‡</sup>, Hormoz S.<sup>‡</sup> (2026). Robust axis formation requires both short-range adhesion and long-range attraction. *bioRxiv* 2025.09.27.678924. doi: [10.1101/2025.09.27.678924](https://doi.org/10.1101/2025.09.27.678924)
 
-<sup>†</sup> Equal contribution &nbsp;&nbsp; <sup>‡</sup> Co-corresponding authors
+<sup>†</sup> Equal contribution &nbsp;&nbsp; <sup>‡</sup> Co-corresponding authors (S. Hormoz is lead contact)

@@ -3,7 +3,7 @@ title: "Past Research"
 cascade:
   type: research
 gallery:
-  - "/img/projects/past-research-01.gif"
+  - "/img/projects/somitoids-01.mp4"
   - "/img/projects/past-research-02.webp"
   - "/img/projects/past-research-03.webp"
   - "/img/projects/past-research-04.webp"

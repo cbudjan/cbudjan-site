@@ -1,0 +1,4 @@
+{{- /* A gallery entry is either a path string or a map with src and alt. */ -}}
+{{- $src := . -}}{{- $alt := "" -}}
+{{- if reflect.IsMap . -}}{{- $src = .src -}}{{- $alt = .alt | default "" -}}{{- end -}}
+{{- partial "media.html" (dict "src" $src "alt" $alt "lazy" true) -}}

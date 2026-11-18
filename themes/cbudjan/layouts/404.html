@@ -1,0 +1,16 @@
+{{ define "main" }}
+
+<div class="project-content">
+  <h1>Page not found</h1>
+  <div class="project-body">
+    <p>The page you were looking for doesn't exist or has moved.</p>
+    <p>
+      Go to the <a href="{{ "" | absURL }}">home page</a>, or browse
+      <a href="{{ "current-research/" | absURL }}">current research</a>,
+      <a href="{{ "past-research/" | absURL }}">past research</a>, or
+      <a href="{{ "contact/" | absURL }}">contact</a>.
+    </p>
+  </div>
+</div>
+
+{{ end }}

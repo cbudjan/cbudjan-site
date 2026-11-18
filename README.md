@@ -7,8 +7,8 @@ Personal academic website for Christoph Budjan, built with [Hugo](https://gohugo
 - **Static site generator:** Hugo with a custom theme (`themes/cbudjan`)
 - **Hosting:** GitHub Pages with a custom domain (`cbudjan.com`)
 - **Deployment:** GitHub Actions — pushes to `main` automatically build and deploy the site
-- **Icons:** Font Awesome 6 Free (CDN) for social/academic icons (ORCID, GitHub, Google Scholar, X/Twitter)
-- **Fonts:** IBM Plex Sans (body) and DM Serif Display (headings) via Google Fonts
+- **Icons:** Font Awesome 6 Free SVGs (CC BY 4.0), inlined from `themes/cbudjan/assets/icons/` — no CDN (ORCID, LinkedIn, Bluesky, GitHub, Google Scholar)
+- **Fonts:** Manrope, Poppins and IBM Plex Mono via Google Fonts
 
 ## Structure
 
@@ -19,6 +19,7 @@ Personal academic website for Christoph Budjan, built with [Hugo](https://gohugo
 │   ├── _index.md                  # Home page (hero text + research interests)
 │   ├── current-research/          # Current research projects
 │   ├── past-research/             # Past research projects
+│   ├── cv.md                      # CV & publication list
 │   └── contact.md                 # Contact page
 ├── static/
 │   ├── CNAME                      # Custom domain for GitHub Pages

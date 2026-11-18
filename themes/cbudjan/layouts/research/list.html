@@ -4,7 +4,7 @@
 <div class="listing-gallery" role="img" aria-label="Research images">
   {{ range . }}
   <figure>
-    <img src="{{ . | strings.TrimPrefix "/" | absURL }}" alt="" loading="lazy">
+    {{ partial "gallery-item.html" . }}
   </figure>
   {{ end }}
 </div>
@@ -17,11 +17,12 @@
 
 <div class="project-grid" role="list">
   {{ range .Pages }}
+  {{ $card := . }}
   <article class="project-card" role="listitem">
     <a href="{{ .Permalink }}" class="project-card-link" aria-label="{{ .Title }}">
       <div class="project-card-img">
         {{ with .Params.image }}
-        <img src="{{ . | strings.TrimPrefix "/" | absURL }}" alt="" loading="lazy">
+        {{ partial "media.html" (dict "src" . "alt" ($card.Params.image_alt | default "") "lazy" true) }}
         {{ end }}
       </div>
       <div class="project-card-body">
